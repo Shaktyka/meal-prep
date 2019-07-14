@@ -1,13 +1,16 @@
 <template>
-  <HelloWorld />
+  <v-app>
+    <v-content transition="slide-x-transition">
+      <h1>This is a home page</h1>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
 
-  export default {
-    components: {
-      HelloWorld
-    }
+export default {
+  components: {
+    //
   }
+};
 </script>
