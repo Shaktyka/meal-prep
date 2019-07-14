@@ -1,16 +1,25 @@
 <template>
-  <v-app>
-    <v-content transition="slide-x-transition">
-      <h1>This is a home page</h1>
-    </v-content>
-  </v-app>
+  <div>
+    <home-hero></home-hero>
+    <home-details></home-details>
+    <home-plans></home-plans>
+  </div>
 </template>
 
 <script>
+import HomeHero from '@/components/HomeHero';
+import HomeDetails from '@/components/HomeDetails';
+import HomePlans from '@/components/HomePlans';
 
 export default {
   components: {
-    //
+    HomeHero,
+    HomeDetails,
+    HomePlans
   }
 };
 </script>
+
+<style scoped>
+  
+</style>
