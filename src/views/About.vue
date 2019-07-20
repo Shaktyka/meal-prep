@@ -1,17 +1,15 @@
 <template>
-  <v-app>
-    <v-content transition="slide-x-transition">
-      <h1>This is an about page</h1>
-    </v-content>
-  </v-app>
+    <v-container fluid>
+        <v-layout>
+            <h1>About Page</h1>
+        </v-layout>
+    </v-container>
 </template>
-
 <script>
 export default {
-  name: 'about'
+    name: 'about'
 };
 </script>
 
-<style>
-  
+<style scoped>
 </style>
