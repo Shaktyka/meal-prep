@@ -84,8 +84,34 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-  name: 'HomePlans'
+  name: 'HomePlans',
+  data() {
+    return {
+      recipes: []
+    };
+  },
+  methods: {
+    showRecipes (plan) {
+      axios.get('https://api.edamam.com/search', {
+        params: {
+          q: plan,
+          app_id: '280cd3d2',
+          app_key: 'b317932d54f1232154ec68637bdec8b4',
+          from: 0,
+          to: 9
+        }
+      })
+      .then(response => {
+        response = response.data;
+        this.recipes = response.hits;
+      })
+      .catch(() => {
+        this.recipes = [];
+      });
+    }
+  }
 };
 </script>
 
