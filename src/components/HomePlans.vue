@@ -24,7 +24,7 @@
                             </div>
                         </div>
                     </v-card-text>
-                    <v-card-actions>
+                    <v-card-actions v-if="['menu'].includes($route.name)">
                         <v-btn outline block color="green" @click="showRecipes('keto')">Select This Plan</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </v-card-text>
-                    <v-card-actions>
+                    <v-card-actions v-if="['menu'].includes($route.name)">
                         <v-btn outline block color="green" @click="showRecipes('paleo')">Select This Plan</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -74,7 +74,7 @@
                             </div>
                         </div>
                     </v-card-text>
-                    <v-card-actions>
+                    <v-card-actions v-if="['menu'].includes($route.name)">
                         <v-btn outline block color="green" @click="showRecipes('vegan')">Select This Plan</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -84,32 +84,27 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
   name: 'HomePlans',
-  data() {
-    return {
-      recipes: []
-    };
-  },
   methods: {
     showRecipes (plan) {
-      axios.get('https://api.edamam.com/search', {
-        params: {
-          q: plan,
-          app_id: '280cd3d2',
-          app_key: 'b317932d54f1232154ec68637bdec8b4',
-          from: 0,
-          to: 9
-        }
-      })
-      .then(response => {
-        response = response.data;
-        this.recipes = response.hits;
-      })
-      .catch(() => {
-        this.recipes = [];
-      });
+      this.$store.dispatch('getRecipes', plan);
+      // axios.get('https://api.edamam.com/search', {
+      //   params: {
+      //     q: plan,
+      //     app_id: '280cd3d2',
+      //     app_key: 'b317932d54f1232154ec68637bdec8b4',
+      //     from: 0,
+      //     to: 9
+      //   }
+      // })
+      // .then(response => {
+      //   response = response.data;
+      //   this.recipes = response.hits;
+      // })
+      // .catch(() => {
+      //   this.recipes = [];
+      // });
     }
   }
 };

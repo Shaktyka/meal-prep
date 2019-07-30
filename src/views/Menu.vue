@@ -1,17 +1,21 @@
 <template>
-  <v-app>
-    <v-content transition="slide-x-transition">
-      <h1>This is an menu page</h1>
-    </v-content>
-  </v-app>
+  <div>
+      <home-plans></home-plans>
+      <meal-recipes></meal-recipes>
+   </div>
 </template>
 
 <script>
+import HomePlans from '@/components/HomePlans';
+import MealRecipes from '@/components/MealRecipes';
 export default {
-  name: 'menu'
+  name: 'menu',
+  components: {
+    HomePlans,
+    MealRecipes
+  }
 };
 </script>
 
-<style>
-  
+<style scoped>
 </style>
