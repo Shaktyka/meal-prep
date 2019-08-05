@@ -15,11 +15,11 @@ export default new Router({
     },
     {
       path: '/menu',
-      name: 'menu',
+      name: 'menu_c',
       component: () => import('./views/Menu.vue')
     },
     {
-      path: '/sign-in',
+      path: '/signin',
       name: 'signin',
       component: () => import('./views/Signin.vue')
     },
@@ -27,6 +27,11 @@ export default new Router({
       path: '/join',
       name: 'join',
       component: () => import('./views/Join.vue')
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: () => import('./views/About.vue')
     }
   ]
 });

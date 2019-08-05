@@ -9,7 +9,7 @@
 import HomePlans from '@/components/HomePlans';
 import MealRecipes from '@/components/MealRecipes';
 export default {
-  name: 'menu',
+  name: 'menu_c',
   components: {
     HomePlans,
     MealRecipes
