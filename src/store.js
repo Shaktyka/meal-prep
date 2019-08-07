@@ -95,8 +95,20 @@ export default new Vuex.Store({
           commit('setUserRecipes', snapshot.val());
         });
     },
-    userSignOut() {
-      //
+    userSignOut({ commit }) {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          commit('setUser', null);
+          commit('setIsAuthenticated', false);
+          router.push('/');
+        })
+        .catch(() => {
+          commit('setUser', null);
+          commit('setIsAuthenticated', false);
+          router.push('/');
+        });
     }
   }
 });
